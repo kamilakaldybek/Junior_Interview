@@ -39,6 +39,6 @@ ORDER BY COUNT(pit.passenger) DESC ;
 SELECT SUBSTRING(p.name, 1, 1) as "First Char",COUNT(*) as "Passengers Count" FROM Passenger as p 
 GROUP BY SUBSTRING(p.name, 1, 1)
 HAVING COUNT(*)>1
-ORDER BY COUNT(*)DESC ;
+ORDER BY COUNT(*) DESC ;
 
 <!-- После выполнения всех заданий, необходимо сделать push в репозиторий и отправить ссылку на него -->
