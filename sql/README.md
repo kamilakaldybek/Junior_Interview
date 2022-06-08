@@ -11,7 +11,11 @@ C помощью SELECT выведите всех пассажиров, кото
 Обязательные поля для вывода: ID пассажира, Имя пассажира как `PASSENGER_NAME`, Название самолета и название компании
 как `COMPANY_NAME`.
 
-<!-- ЗАКРЕПИТЕ ВАШ SELECT ОТ 1 ЗАДАНИЯ ЗДЕСЬ -->
+SELECT p.id, p.name, t.plane, c.name as "company name" FROM Passenger as p 
+JOIN Pass_in_trip as pit ON pit.passenger= p.id
+JOIN Trip as t ON pit.trip=t.id 
+JOIN Company as c ON t.company=c.id
+WHERE t.plane="Boeing" AND c.name = "air_France";
 
 ### Задание 2.
 
@@ -19,7 +23,11 @@ C помощью SELECT выведите количество пассажиро
 Отсортируйте записи относительно количество пассажиров в порядке убывания(от большего к меньшему).
 Обязательные поля для вывода: Номер полета и Количество пассажиров.
 
-<!-- ЗАКРЕПИТЕ ВАШ SELECT ОТ 2 ЗАДАНИЯ ЗДЕСЬ -->
+SELECT pit.trip as "Trip ID", COUNT(pit.passenger) as "Passengers Count" FROM Passenger as p 
+JOIN Pass_in_trip as pit ON pit.passenger= p.id
+GROUP BY pit.trip
+ORDER BY COUNT(pit.passenger) DESC ;
+
 
 ### Задание 3.
 
@@ -28,6 +36,9 @@ C помощью SELECT выведите количество пассажиро
 где количество больше 1. Обязательные поля для вывода: `FIRST_CHAR`(Первая буква имени) 
 и `COUNT` (Количество пассажиров, имена которых начинаются с этой буквы).
 
-<!-- ЗАКРЕПИТЕ ВАШ SELECT ОТ 3 ЗАДАНИЯ ЗДЕСЬ -->
+SELECT SUBSTRING(p.name, 1, 1) as "First Char",COUNT(*) as "Passengers Count" FROM Passenger as p 
+GROUP BY SUBSTRING(p.name, 1, 1)
+HAVING COUNT(*)>1
+ORDER BY COUNT(*)DESC ;
 
 <!-- После выполнения всех заданий, необходимо сделать push в репозиторий и отправить ссылку на него -->
