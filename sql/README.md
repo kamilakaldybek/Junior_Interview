@@ -11,8 +11,8 @@ C помощью SELECT выведите всех пассажиров, кото
 Обязательные поля для вывода: ID пассажира, Имя пассажира как `PASSENGER_NAME`, Название самолета и название компании
 как `COMPANY_NAME`.
 
-SELECT p.id, p.name, t.plane, c.name as "company name" FROM Passenger as p 
-JOIN Pass_in_trip as pit ON pit.passenger= p.id
+//SELECT p.id, p.name, t.plane, c.name as "company name" FROM Passenger as p 
+//JOIN Pass_in_trip as pit ON pit.passenger= p.id
 JOIN Trip as t ON pit.trip=t.id 
 JOIN Company as c ON t.company=c.id
 WHERE t.plane="Boeing" AND c.name = "air_France";
