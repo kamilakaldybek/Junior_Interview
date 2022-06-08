@@ -17,6 +17,7 @@ JOIN Trip as t ON pit.trip=t.id
 JOIN Company as c ON t.company=c.id
 WHERE t.plane="Boeing" AND c.name = "air_France";
 
+
 ### Задание 2.
 
 C помощью SELECT выведите количество пассажиров относительно каждого полета(`Pass_in_trip.trip`).
